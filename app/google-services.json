@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "407267514634",
+    "project_id": "fleekpeek-a9df0",
+    "storage_bucket": "fleekpeek-a9df0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407267514634:android:1e8eef846a67fed48682f3",
+        "android_client_info": {
+          "package_name": "com.example.fleekpeek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB8arhCnfGjluMXqKX-bOSDrSsimKcSKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407267514634:android:a8e2fc56549f86508682f3",
+        "android_client_info": {
+          "package_name": "com.jayaram.fleekpeek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB8arhCnfGjluMXqKX-bOSDrSsimKcSKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
