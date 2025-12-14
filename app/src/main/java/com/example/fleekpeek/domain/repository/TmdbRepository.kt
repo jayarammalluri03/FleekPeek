@@ -3,25 +3,35 @@ package com.example.fleekpeek.domain.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.example.fleekpeek.remote.MovieDetails
 import com.example.fleekpeek.remote.model.TMDBItem
 import com.example.fleekpeek.remote.TmdbApis
 import com.example.fleekpeek.remote.TmdbPagingSource
 import com.example.fleekpeek.remote.TvDetails
-import com.example.fleekpeek.remote.model.SeriesDto
 import com.example.fleekpeek.remote.repository.TmdbRepository
+
 import kotlinx.coroutines.flow.Flow
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
 
 @Singleton
 class TmdbRepository @Inject constructor(
-    private val api: TmdbApis): TmdbRepository {
+    private val api: TmdbApis,
+    private val workManager: WorkManager): TmdbRepository {
     override suspend fun getTrending(page: Int): List<TMDBItem> {
         val resp = api.getTrending(page= page)
         return resp.results
     }
+
+
 
     override suspend fun getPopularMovies(page: Int): List<TMDBItem> {
         val resp = api.getPopularMovies(page=  page)
@@ -120,9 +130,6 @@ class TmdbRepository @Inject constructor(
         return result.results
     }
 
-    override suspend fun getPopularSeries(page: Int): List<SeriesDto> {
-        return api.getPopularSeries(page).results
-    }
 
 
 }

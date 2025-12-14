@@ -1,5 +1,6 @@
 package com.example.fleekpeek.presentations.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,9 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.fleekpeek.Utils.SectionUiState
+import com.example.fleekpeek.remote.model.TMDBItem
 
 @Composable
-fun CarouselSection(title: String, state: SectionUiState, onItemClick: (Int, String) -> Unit) {
+fun CarouselSection(title: String, state: SectionUiState, onItemClick: (Int, String) -> Unit, onviewAllClicked: (List<TMDBItem>) -> Unit) {
     Column {
         Row(
             modifier = Modifier
@@ -31,7 +33,9 @@ fun CarouselSection(title: String, state: SectionUiState, onItemClick: (Int, Str
         ) {
             Text(text = title, style = MaterialTheme.typography.titleMedium)
             TextButton(onClick = { /* View More */ }) {
-                Text("View more")
+                Text("View more",Modifier.clickable {
+                    onviewAllClicked(state.items ?: emptyList())
+                })
             }
         }
         if (state.error != null) {
@@ -46,7 +50,7 @@ fun CarouselSection(title: String, state: SectionUiState, onItemClick: (Int, Str
         } else {
             LazyRow(contentPadding = PaddingValues(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 items(state.items) { item ->
-                    CarouselItem(item = item, onClick = { onItemClick(item.id ?: 0, item.media_type ?: "movie") })
+                    com.example.fleekpeek.presentations.common.CarouselItem(item = item, onClick = { onItemClick(item.id ?: 0, item.media_type ?: "movie") })
                 }
             }
         }

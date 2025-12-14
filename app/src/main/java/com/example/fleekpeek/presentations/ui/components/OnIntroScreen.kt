@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import com.example.fleekpeek.Dimen
 import com.example.fleekpeek.common.NewsButton
 import com.example.fleekpeek.common.NewsTextButton
@@ -23,7 +24,7 @@ import com.example.fleekpeek.presentations.ui.pages
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnIntroScreen(events: (OnIntroScreenEvents) -> Unit) {
+fun OnIntroScreen(navController: NavHostController,events: (OnIntroScreenEvents) -> Unit) {
 
 
     Column(modifier = Modifier.fillMaxSize()) {

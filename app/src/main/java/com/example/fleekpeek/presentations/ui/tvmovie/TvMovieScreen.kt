@@ -100,6 +100,8 @@ fun TvMovieScreen(
                                     state = tvSectionList[it],
                                     onItemClick = { id, mediaType ->
                                         navigateToDetails(id, if (isTv) "tv" else "movie")
+                                    },
+                                    onviewAllClicked = {
                                     }
                                 )
                             }
@@ -153,6 +155,8 @@ fun TvMovieScreen(
                                 state = movieSectionList[index],
                                 onItemClick = { id, _ ->
                                     navigateToDetails(id, "movie")
+                                },
+                                onviewAllClicked = {
                                 }
                             )
                         }

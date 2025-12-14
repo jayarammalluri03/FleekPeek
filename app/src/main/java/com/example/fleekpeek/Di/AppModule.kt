@@ -42,8 +42,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 
@@ -67,14 +70,33 @@ object AppModule {
     fun provideNewsApi(): TmdbApis{
         return Retrofit.Builder()
             .baseUrl(Common.BASE_URL)
+            .client(getOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create()).build().create(TmdbApis::class.java)
+    }
+
+    private fun getOkHttpClient() =
+        OkHttpClient.Builder()
+            .connectTimeout(15L, TimeUnit.SECONDS)
+            .readTimeout(15L, TimeUnit.SECONDS)
+            .writeTimeout(15L, TimeUnit.SECONDS)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .build()
+
+    @Provides
+
+    @Singleton
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
+        return WorkManager.getInstance(context)
     }
 
 
     @Provides
     @Singleton
-    fun getTMDBRepository(): TmdbRepository = com.example.fleekpeek.domain.repository.TmdbRepository(provideNewsApi())
-
+    fun provideRandomSeriesNotifier(worker: WorkManager, apiService:TmdbApis): TmdbRepository {
+        return com.example.fleekpeek.domain.repository.TmdbRepository(provideNewsApi(),worker)
+    }
 
     @Provides
     @Singleton
@@ -95,6 +117,7 @@ object AppModule {
             getAnimeTvShows = GetAnimeTvShowsUseCase(repo),
             getComfortTvShows = GetComfortTvShowsUseCase(repo),
             getKDramaTvShows = GetKDramaTvShowsUseCase(repo)
+
         )
     }
 
@@ -130,12 +153,8 @@ object AppModule {
         )
     }
 
-    @Provides
 
-    @Singleton
-    fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
-        return WorkManager.getInstance(context)
-    }
+
 
 
 

@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fleekpeek.domain.use_cases.app_entry_useCase.AppEntryUseCase
 import com.example.fleekpeek.presentations.NavGraph.Route
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -2,7 +2,6 @@ package com.example.fleekpeek.presentations.NavGraph
 
 sealed class Route(val route: String) {
 
-
     object onIntroScreen: Route(route = "onIntroScreen")
     object HomeScreen: Route(route = "homeScreen")
     object SearchScreen: Route(route = "SearchScreen")
@@ -13,5 +12,7 @@ sealed class Route(val route: String) {
     object AppStartNavigation: Route(route = "AppStartNavigation")
     object FleekPeekNavigation: Route(route = "FleekPeekNavigation")
     object FleekPeekNavigationScreen: Route(route = "FleekPeekNavigationScreen")
+    object PlayerScreen: Route(route = "playerScreen")
+    object ViewallScreen: Route(route = "viewallscreen")
 
 }

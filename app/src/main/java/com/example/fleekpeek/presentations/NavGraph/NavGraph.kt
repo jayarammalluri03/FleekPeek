@@ -31,7 +31,7 @@ fun NavGraph(
                 route = Route.onIntroScreen.route
             ) {
                 val viewModel: IntroPageViewModel = hiltViewModel()
-                OnIntroScreen(events = viewModel::onEvent)
+                OnIntroScreen(events = viewModel::onEvent, navController = navController)
             }
 
         }

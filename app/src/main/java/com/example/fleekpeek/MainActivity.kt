@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+
 import com.example.fleekpeek.presentations.NavGraph.NavGraph
 import com.example.fleekpeek.presentations.viewModels.MainViewModel
 import com.example.fleekpeek.ui.theme.FleekPeekTheme
@@ -23,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,6 @@ class MainActivity : ComponentActivity() {
             FleekPeekTheme {
                 val isSystemInDarkMade = isSystemInDarkTheme()
                 val systemController = rememberSystemUiController()
-
                 SideEffect {
                     systemController.setSystemBarsColor(
                         color = Color.Transparent,

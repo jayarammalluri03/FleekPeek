@@ -17,5 +17,5 @@ data class TMDBUseCase(
     val getDarkThrillerTv: GetDarkThrillerTvUseCase,
     val getAnimeTvShows: GetAnimeTvShowsUseCase,
     val getComfortTvShows: GetComfortTvShowsUseCase,
-    val getKDramaTvShows: GetKDramaTvShowsUseCase
+    val getKDramaTvShows: GetKDramaTvShowsUseCase,
 )

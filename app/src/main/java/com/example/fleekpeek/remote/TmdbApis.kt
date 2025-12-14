@@ -131,10 +131,5 @@ interface TmdbApis {
     ): TMDBResponse
 
 
-    @GET("tv/popular")
-    suspend fun getPopularSeries(
-        @Query("page") page: Int = 1
-    ): PopularSeriesResponse
-
 
 }

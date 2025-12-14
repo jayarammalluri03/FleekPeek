@@ -22,15 +22,19 @@
     import com.example.fleekpeek.R
     import com.example.fleekpeek.presentation.home.HomeViewModel
     import com.example.fleekpeek.presentations.NavGraph.Route
+    import com.example.fleekpeek.presentations.ui.player.PlayerScreen
     import com.example.fleekpeek.presentations.ui.details.DetailsScreen
     import com.example.fleekpeek.presentations.ui.favoriteScreen.FavoritesScreen
     import com.example.fleekpeek.presentations.ui.home.HomeScreen
     import com.example.fleekpeek.presentations.ui.search.SearchScreen
     import com.example.fleekpeek.presentations.ui.tvmovie.TvMovieScreen
+    import com.example.fleekpeek.presentations.ui.viewall.ViewAllScreen
+    import com.example.fleekpeek.presentations.ui.viewall.ViewAllViewModel
     import com.example.fleekpeek.presentations.viewModels.DetailsViewModel
     import com.example.fleekpeek.presentations.viewModels.FavoritesViewModel
     import com.example.fleekpeek.presentations.viewModels.SearchScreenViewModel
     import com.example.fleekpeek.presentations.viewModels.TVMovieViewmodel
+    import com.example.fleekpeek.remote.model.TMDBItem
 
 
     @Composable
@@ -48,14 +52,17 @@
         }
 
         val backStackEntry = navController.currentBackStackEntryAsState().value
+        val currentRoute = backStackEntry?.destination?.route
+
 
         var selectedIndex= remember(key1 = backStackEntry) {
-            val currentRoute = backStackEntry?.destination?.route
 
             val effectiveRoute = if (currentRoute == Route.DetailsScreen.route)
                 navController.previousBackStackEntry?.destination?.route ?: currentRoute
              else
                 currentRoute
+
+
 
             when (effectiveRoute) {
                 Route.HomeScreen.route -> 0
@@ -66,12 +73,16 @@
             }
         }
 
+        val showBars = currentRoute != Route.PlayerScreen.route
 
-            Scaffold(modifier = Modifier.fillMaxSize(),
+
+        Scaffold(modifier = Modifier.fillMaxSize(),
                 topBar = {
-                    FleekPeekTopBar(navController)
+                if(showBars) FleekPeekTopBar(navController)
                 },
                 bottomBar = {
+                   if(!showBars){}
+                    else
                    BottomNavigation(item = bottomNavItems,
                        selected = selectedIndex,
                        onItemClicked = {
@@ -91,17 +102,42 @@
                         val viewModel: HomeViewModel= hiltViewModel()
                        HomeScreen(viewModel, navigateToDetails = { id, mediatype ->
                                navigateToDetails(navController= navController, id = id, mediaType = mediatype ?: "")
-                       })
+                       },
+                           navigateToViewAll = {
+                               navigateToViewAll(navController, it)
+                           })
                     }
                     composable(Route.DetailsScreen.route) {
                         val viewModel: DetailsViewModel = hiltViewModel()
                         val prevEntry = navController.previousBackStackEntry
                         val id = remember { prevEntry?.savedStateHandle?.get<Int?>("id") }
                         val mediaType = remember { prevEntry?.savedStateHandle?.get<String?>("mediatype") }
-                        DetailsScreen(viewModel, events = viewModel::onEvent, id = id ?: 0, mediaType = mediaType ?: "")
-
+                        DetailsScreen(viewModel, events = viewModel::onEvent, id = id ?: 0, mediaType = mediaType ?: "", onclick = {
+                            navigateToPlayerScreen(navController)
+                        })
                     }
 
+                    composable(Route.PlayerScreen.route){
+                        PlayerScreen()
+                    }
+
+                    composable(Route.ViewallScreen.route){
+                        val viewModel: ViewAllViewModel = hiltViewModel()
+                        val prevEntry = navController.previousBackStackEntry
+                        val list =
+                            remember { prevEntry?.savedStateHandle?.get<List<TMDBItem>?>("list") }
+                        ViewAllScreen(
+                            items = list ?: emptyList(),
+                            events = viewModel::onEvent,
+                            viewModel = viewModel,
+                            onclick = { id, mediatype ->
+                                navigateToDetails(
+                                    navController = navController,
+                                    id = id,
+                                    mediaType = mediatype ?: ""
+                                )
+                            })
+                    }
 
                     composable(Route.SearchScreen.route){
                         val viewModel: SearchScreenViewModel = hiltViewModel()
@@ -144,11 +180,20 @@
         }
     }
 
+    private fun navigateToPlayerScreen(navController: NavController){
+        navController.navigate(route = Route.PlayerScreen.route)
+    }
+
 
     private fun navigateToDetails(navController: NavController, id: Int,mediaType: String){
         navController.currentBackStackEntry?.savedStateHandle?.set("id", id)
         navController.currentBackStackEntry?.savedStateHandle?.set("mediatype", mediaType)
         navController.navigate(route = Route.DetailsScreen.route)
+    }
+
+    private fun navigateToViewAll(navController: NavController, list: List<TMDBItem>){
+        navController.currentBackStackEntry?.savedStateHandle?.set("list", list)
+        navController.navigate(route = Route.ViewallScreen.route)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)

@@ -24,7 +24,7 @@ import com.example.fleekpeek.remote.model.TMDBItem
 import kotlinx.coroutines.delay
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel, navigateToDetails: (Int, String?) -> Unit) {
+fun HomeScreen(viewModel: HomeViewModel, navigateToDetails: (Int, String?) -> Unit, navigateToViewAll: (List<TMDBItem>) -> Unit) {
 
     val trendingState by viewModel.trending.collectAsState()
     val popularMoviesState by viewModel.popularMovies.collectAsState()
@@ -80,6 +80,9 @@ fun HomeScreen(viewModel: HomeViewModel, navigateToDetails: (Int, String?) -> Un
                         state = popularMoviesState,
                         onItemClick = { id, mediaType ->
                             navigateToDetails(id, "movie")
+                        },
+                        onviewAllClicked = {
+                            navigateToViewAll(it)
                         }
                     )
                 }
@@ -90,6 +93,9 @@ fun HomeScreen(viewModel: HomeViewModel, navigateToDetails: (Int, String?) -> Un
                         state = popularTvState,
                         onItemClick = { id, mediaType ->
                             navigateToDetails(id, "tv")
+                        },
+                        onviewAllClicked = {
+                            navigateToViewAll(it)
                         }
                     )
                 }
@@ -100,6 +106,9 @@ fun HomeScreen(viewModel: HomeViewModel, navigateToDetails: (Int, String?) -> Un
                         state = upcomingState,
                         onItemClick = { id, mediaType ->
                             navigateToDetails(id, "movie")
+                        },
+                        onviewAllClicked = {
+                            navigateToViewAll(it)
                         }
                     )
                 }

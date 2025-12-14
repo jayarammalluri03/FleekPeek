@@ -4,7 +4,6 @@ import androidx.paging.PagingData
 import com.example.fleekpeek.remote.MovieDetails
 import com.example.fleekpeek.remote.model.TMDBItem
 import com.example.fleekpeek.remote.TvDetails
-import com.example.fleekpeek.remote.model.SeriesDto
 import kotlinx.coroutines.flow.Flow
 
 interface TmdbRepository {
@@ -23,7 +22,6 @@ interface TmdbRepository {
     suspend fun getAnimeTvShows(page: Int = 1): List<TMDBItem>
     suspend fun getComfortTvShows(page: Int = 1): List<TMDBItem>
     suspend fun getKDramaTvShows(page: Int = 1): List<TMDBItem>
-    suspend fun getPopularSeries(page: Int = 1): List<SeriesDto>
 
 }
 

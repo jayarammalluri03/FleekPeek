@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.media3.ui)
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.09.00"))
@@ -129,4 +130,6 @@ dependencies {
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.exoplayer.dash)
 }
