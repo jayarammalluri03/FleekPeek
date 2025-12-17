@@ -19,6 +19,7 @@ import com.example.fleekpeek.presentations.NavGraph.NavGraph
 import com.example.fleekpeek.presentations.viewModels.MainViewModel
 import com.example.fleekpeek.ui.theme.FleekPeekTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

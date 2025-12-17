@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.fleekpeek.domain.use_cases.app_entry_useCase.AppEntryUseCase
 import com.example.fleekpeek.presentations.ui.components.OnIntroScreenEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,5 +29,6 @@ class IntroPageViewModel @Inject constructor(private val appEntryUseCase: AppEnt
             appEntryUseCase.saveEntry()
         }
     }
+
 
 }

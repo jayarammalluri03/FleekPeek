@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "839363580874",
+    "project_id": "sample-login-page-77a4d",
+    "storage_bucket": "sample-login-page-77a4d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839363580874:android:df0d6d4f0c7b6f05077533",
+        "android_client_info": {
+          "package_name": "com.example.fleekpeek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ_0YbtU39gWjzJl5jxWiIdMgOAhOW7ME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

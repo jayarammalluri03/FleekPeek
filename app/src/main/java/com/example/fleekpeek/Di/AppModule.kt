@@ -13,8 +13,11 @@ import com.example.fleekpeek.domain.manager.LocalManager
 import com.example.fleekpeek.domain.repository.FavoriteRepository
 import com.example.fleekpeek.domain.use_cases.app_entry_useCase.AppEntryUseCase
 import com.example.fleekpeek.domain.use_cases.app_entry_useCase.ReadEntry
+import com.example.fleekpeek.domain.use_cases.app_entry_useCase.ReadLogin
 import com.example.fleekpeek.domain.use_cases.app_entry_useCase.SaveEntry
+import com.example.fleekpeek.domain.use_cases.app_entry_useCase.SaveLogin
 import com.example.fleekpeek.domain.use_cases.favorites_useCases.AddFavoriteUseCase
+import com.example.fleekpeek.domain.use_cases.favorites_useCases.ClearFavorites
 import com.example.fleekpeek.domain.use_cases.favorites_useCases.FavUseCases
 import com.example.fleekpeek.domain.use_cases.favorites_useCases.GetFavoritesUseCase
 import com.example.fleekpeek.domain.use_cases.favorites_useCases.IsFavoriteUseCase
@@ -62,7 +65,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAppEntryUseCases(localUserManager: LocalManager) = AppEntryUseCase(readEntry = ReadEntry(localUserManager),
-        saveEntry = SaveEntry(localUserManager)
+        saveEntry = SaveEntry(localUserManager),
+        readLogin = ReadLogin(localUserManager),
+        saveLogin = SaveLogin(localUserManager)
     )
 
     @Provides
@@ -149,7 +154,8 @@ object AppModule {
             addFavorite = AddFavoriteUseCase(repo),
             removeFavorite = RemoveFavoriteUseCase(repo),
             getFavorites = GetFavoritesUseCase(repo),
-            isFavorite = IsFavoriteUseCase(repo)
+            isFavorite = IsFavoriteUseCase(repo),
+            clearFavorites= ClearFavorites(repo)
         )
     }
 

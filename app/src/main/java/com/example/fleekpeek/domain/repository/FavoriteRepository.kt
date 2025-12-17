@@ -8,4 +8,5 @@ interface FavoriteRepository {
     suspend fun addFavorite(item: TMDBItem)
     suspend fun removeFavorite(item: TMDBItem)
     fun isFavorite(id: Int): Flow<Boolean>
+    suspend fun clearFavorites()
 }

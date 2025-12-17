@@ -163,7 +163,7 @@
                 visible = controlsVisible,
                 modifier = Modifier.align(Alignment.BottomCenter)
             ) {
-                Box(modifier = Modifier.)
+                Box(modifier = Modifier.fillMaxSize())
                 Column(
                     modifier = Modifier.fillMaxWidth().align(Alignment.BottomCenter).background(
                         Color(0x66000000)

@@ -4,5 +4,6 @@ data class FavUseCases(
     val addFavorite: AddFavoriteUseCase,
     val removeFavorite: RemoveFavoriteUseCase,
     val getFavorites: GetFavoritesUseCase,
-    val isFavorite: IsFavoriteUseCase
+    val isFavorite: IsFavoriteUseCase,
+    val clearFavorites: ClearFavorites
 )

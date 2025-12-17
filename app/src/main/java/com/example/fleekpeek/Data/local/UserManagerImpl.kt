@@ -16,6 +16,7 @@ class UserManagerImpl(private val context: Context): LocalManager {
     private val Context.dataStore : DataStore<Preferences> by preferencesDataStore(name = Common.USER_SETTINGS)
     private object PreferenceKey {
         val APP_ENTRY = booleanPreferencesKey(name = Common.APP_ENTRY)
+        val SaveLogin = booleanPreferencesKey(name = Common.LOGIN_STATUS)
     }
 
     override suspend fun saveAppEntry() {
@@ -31,6 +32,16 @@ class UserManagerImpl(private val context: Context): LocalManager {
         }
     }
 
+    override suspend fun saveLogin(isLogin: Boolean) {
+        context.dataStore.edit {
+            it[PreferenceKey.SaveLogin] = isLogin
+        }
+    }
 
+    override suspend fun readLogin(): Flow<Boolean> {
+        return context.dataStore.data.map {
+            it[PreferenceKey.SaveLogin]?:false
+        }
+    }
 
 }

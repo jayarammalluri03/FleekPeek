@@ -25,4 +25,7 @@ class FavoriteRepositoryImpl @Inject constructor(
     }
 
     override fun isFavorite(id: Int): Flow<Boolean> = dao.isFavorite(id)
+    override suspend fun clearFavorites() {
+        dao.clearFavorites()
+    }
 }

@@ -22,4 +22,8 @@ interface FavoriteDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE id = :id)")
     fun isFavorite(id: Int): Flow<Boolean>
+
+    @Query("DELETE FROM favorites")
+    suspend fun clearFavorites()
+
 }

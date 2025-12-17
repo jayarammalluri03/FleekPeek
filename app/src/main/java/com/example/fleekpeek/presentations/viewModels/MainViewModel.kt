@@ -26,8 +26,13 @@ class MainViewModel @Inject constructor(private val appEntryUseCase: AppEntryUse
 
     init {
         viewModelScope.launch {
-            appEntryUseCase.readEntry().onEach {  entered ->
-                startDestination = if (entered) Route.FleekPeekNavigation.route else Route.AppStartNavigation.route
+            appEntryUseCase.readEntry().onEach { entered ->
+                val isLoggedIn = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser != null
+                startDestination = when {
+                    !entered -> Route.AppStartNavigation.route
+                    entered && !isLoggedIn -> Route.SigninNavigation.route
+                    else -> Route.FleekPeekNavigation.route
+                }
                 delay(200)
                 splashCondition = false
             }.launchIn(viewModelScope)

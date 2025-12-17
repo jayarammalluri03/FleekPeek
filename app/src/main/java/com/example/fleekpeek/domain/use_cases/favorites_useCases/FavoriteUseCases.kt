@@ -27,3 +27,9 @@ class IsFavoriteUseCase @Inject constructor(
 ) {
     operator fun invoke(id: Int) = repo.isFavorite(id)
 }
+
+class ClearFavorites @Inject constructor(
+    private val repo: FavoriteRepository
+) {
+    suspend operator fun invoke() = repo.clearFavorites()
+}

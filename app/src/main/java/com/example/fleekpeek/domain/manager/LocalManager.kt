@@ -8,4 +8,8 @@ interface LocalManager {
 
     suspend fun readAppEntry(): Flow<Boolean>
 
+    suspend fun readLogin(): Flow<Boolean>
+
+    suspend fun saveLogin(isLogin: Boolean)
+
 }

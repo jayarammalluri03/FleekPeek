@@ -7,8 +7,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.example.fleekpeek.presentations.peek_navigators.FleekPeekNavigator
+import com.example.fleekpeek.presentations.ui.auth.SignUpScreen
 import com.example.fleekpeek.presentations.ui.components.OnIntroScreen
+import com.example.fleekpeek.presentations.ui.login.SignInScreen
 import com.example.fleekpeek.presentations.viewModels.IntroPageViewModel
+import com.example.fleekpeek.presentations.viewModels.LoginViewModel
+import com.example.fleekpeek.presentations.viewModels.SignUpViewModel
 
 
 @Composable
@@ -33,8 +37,34 @@ fun NavGraph(
                 val viewModel: IntroPageViewModel = hiltViewModel()
                 OnIntroScreen(events = viewModel::onEvent, navController = navController)
             }
-
         }
+
+        navigation(
+            route = Route.SigninNavigation.route,
+            startDestination = Route.SignInScreen.route
+        ) {
+            composable(
+                route = Route.SignInScreen.route
+            ) {
+                val viewModel = hiltViewModel<LoginViewModel>()
+                SignInScreen(viewModel,onSignUpClick = {
+                    navController.navigate(Route.SignUpScreen.route)
+                },
+                    onLoginClicked = {
+                        navController.navigate(Route.FleekPeekNavigationScreen.route)
+                    })
+             }
+
+            composable(
+                route = Route.SignUpScreen.route
+            ) {
+                val viewModel = hiltViewModel<SignUpViewModel>()
+                SignUpScreen(viewModel, succesSignUp= {
+                    navController.navigate(Route.FleekPeekNavigationScreen.route)
+                })
+             }
+        }
+
 
 
 
@@ -44,7 +74,7 @@ fun NavGraph(
         ) {
 
             composable(route = Route.FleekPeekNavigationScreen.route) {
-                FleekPeekNavigator()
+                FleekPeekNavigator(navController)
             }
         }
 
