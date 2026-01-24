@@ -94,24 +94,6 @@ Kotlin 1.9+
 
 TMDB API Key
 
-Setup
-
-Clone the repo:
-
-git clone https://github.com/your-username/fleekpeek.git
-
-
-Add your TMDB API key in local.properties:
-
-TMDB_API_KEY=your_api_key
-
-
-Sync & run the app.
-
-📸 Screenshots
-
-(Add your screenshots here)
-
 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
