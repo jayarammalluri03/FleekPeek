@@ -1,4 +1,4 @@
-package com.example.fleekpeek.remote
+package com.example.fleekpeek.Data.local.remote
 
 data class MovieDetails(
     val adult: Boolean,

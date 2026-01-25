@@ -1,6 +1,6 @@
 package com.example.fleekpeek.domain.repository
 
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import kotlinx.coroutines.flow.Flow
 
 interface FavoriteRepository {

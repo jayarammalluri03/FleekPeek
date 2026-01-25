@@ -1,7 +1,5 @@
 package com.example.fleekpeek.domain.use_cases.responseUsecases
 
-import com.example.fleekpeek.remote.TvDetails
-
 data class TMDBUseCase(
     val getTrending: GetTrending,
     val getPopularMovies: GetPopularMovies,

@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.fleekpeek.Utils.SectionUiState
 import com.example.fleekpeek.presentations.viewModels.FavoritesViewModel
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 
 @Composable
 fun FavoritesScreen(

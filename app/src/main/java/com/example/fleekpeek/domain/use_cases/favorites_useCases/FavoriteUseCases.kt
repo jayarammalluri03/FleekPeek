@@ -1,7 +1,7 @@
 package com.example.fleekpeek.domain.use_cases.favorites_useCases
 
 import com.example.fleekpeek.domain.repository.FavoriteRepository
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import javax.inject.Inject
 
 class AddFavoriteUseCase @Inject constructor(

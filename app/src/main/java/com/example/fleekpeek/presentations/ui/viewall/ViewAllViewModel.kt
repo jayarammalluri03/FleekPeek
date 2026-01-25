@@ -1,8 +1,7 @@
 package com.example.fleekpeek.presentations.ui.viewall
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

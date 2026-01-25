@@ -4,7 +4,7 @@ import com.example.fleekpeek.Data.local.doa.FavoriteDao
 import com.example.fleekpeek.Data.local.mapper.toFavoriteEntity
 import com.example.fleekpeek.Data.local.mapper.toTMDBItem
 import com.example.fleekpeek.domain.repository.FavoriteRepository
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

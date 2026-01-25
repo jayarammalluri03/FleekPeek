@@ -1,8 +1,8 @@
 package com.example.fleekpeek.domain.use_cases.responseUsecases
 
-import com.example.fleekpeek.remote.MovieDetails
-import com.example.fleekpeek.remote.TvDetails
-import com.example.fleekpeek.remote.repository.TmdbRepository
+import com.example.fleekpeek.Data.local.remote.MovieDetails
+import com.example.fleekpeek.Data.local.remote.TvDetails
+import com.example.fleekpeek.Data.local.remote.repository.TmdbRepository
 import javax.inject.Inject
 
 class DetailsMovieUseCase @Inject  constructor(private var repo: TmdbRepository){

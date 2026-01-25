@@ -8,7 +8,7 @@ import androidx.paging.cachedIn
 import com.example.fleekpeek.domain.use_cases.responseUsecases.TMDBUseCase
 import com.example.fleekpeek.presentations.ui.search.SearchEvent
 import com.example.fleekpeek.presentations.ui.search.SearchState
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow

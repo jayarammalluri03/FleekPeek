@@ -3,21 +3,15 @@ package com.example.fleekpeek.domain.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import androidx.work.Constraints
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
-import com.example.fleekpeek.remote.MovieDetails
-import com.example.fleekpeek.remote.model.TMDBItem
-import com.example.fleekpeek.remote.TmdbApis
-import com.example.fleekpeek.remote.TmdbPagingSource
-import com.example.fleekpeek.remote.TvDetails
-import com.example.fleekpeek.remote.repository.TmdbRepository
+import com.example.fleekpeek.Data.local.remote.MovieDetails
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.TmdbApis
+import com.example.fleekpeek.Data.local.remote.TmdbPagingSource
+import com.example.fleekpeek.Data.local.remote.TvDetails
+import com.example.fleekpeek.Data.local.remote.repository.TmdbRepository
 
 import kotlinx.coroutines.flow.Flow
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -38,8 +38,8 @@ import com.example.fleekpeek.domain.use_cases.responseUsecases.GetTrending
 import com.example.fleekpeek.domain.use_cases.responseUsecases.GetUpcomingMovies
 import com.example.fleekpeek.domain.use_cases.responseUsecases.SearchScreenUseCase
 import com.example.fleekpeek.domain.use_cases.responseUsecases.TMDBUseCase
-import com.example.fleekpeek.remote.TmdbApis
-import com.example.fleekpeek.remote.repository.TmdbRepository
+import com.example.fleekpeek.Data.local.remote.TmdbApis
+import com.example.fleekpeek.Data.local.remote.repository.TmdbRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

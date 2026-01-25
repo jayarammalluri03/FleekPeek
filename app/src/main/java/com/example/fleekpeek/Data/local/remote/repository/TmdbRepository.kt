@@ -1,9 +1,9 @@
-package com.example.fleekpeek.remote.repository
+package com.example.fleekpeek.Data.local.remote.repository
 
 import androidx.paging.PagingData
-import com.example.fleekpeek.remote.MovieDetails
-import com.example.fleekpeek.remote.model.TMDBItem
-import com.example.fleekpeek.remote.TvDetails
+import com.example.fleekpeek.Data.local.remote.MovieDetails
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.TvDetails
 import kotlinx.coroutines.flow.Flow
 
 interface TmdbRepository {

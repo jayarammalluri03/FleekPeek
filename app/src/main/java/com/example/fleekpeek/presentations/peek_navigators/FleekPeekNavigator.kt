@@ -42,8 +42,7 @@ import com.example.fleekpeek.presentations.viewModels.FavoritesViewModel
 import com.example.fleekpeek.presentations.viewModels.SearchScreenViewModel
 import com.example.fleekpeek.presentations.viewModels.SettingsViewModel
 import com.example.fleekpeek.presentations.viewModels.TVMovieViewmodel
-import com.example.fleekpeek.remote.model.TMDBItem
-import com.google.firebase.auth.FirebaseAuth
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 
 
 @Composable

@@ -1,8 +1,7 @@
-package com.example.fleekpeek.remote
+package com.example.fleekpeek.Data.local.remote
 
 import com.example.fleekpeek.Utils.Common
-import com.example.fleekpeek.remote.model.PopularSeriesResponse
-import com.example.fleekpeek.remote.model.TMDBResponse
+import com.example.fleekpeek.Data.local.remote.model.TMDBResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

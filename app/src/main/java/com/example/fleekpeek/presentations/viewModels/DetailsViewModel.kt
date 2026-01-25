@@ -9,8 +9,8 @@ import com.example.fleekpeek.domain.use_cases.favorites_useCases.FavUseCases
 import com.example.fleekpeek.domain.use_cases.responseUsecases.DetailsMovieUseCase
 import com.example.fleekpeek.domain.use_cases.responseUsecases.DetailsShowUseCase
 import com.example.fleekpeek.presentations.ui.details.DetailsEvents
-import com.example.fleekpeek.remote.MovieDetails
-import com.example.fleekpeek.remote.TvDetails
+import com.example.fleekpeek.Data.local.remote.MovieDetails
+import com.example.fleekpeek.Data.local.remote.TvDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

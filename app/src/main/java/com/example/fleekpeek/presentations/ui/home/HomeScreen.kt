@@ -20,7 +20,7 @@ import coil.compose.AsyncImage
 import com.example.fleekpeek.Utils.SectionUiState
 import com.example.fleekpeek.presentation.home.HomeViewModel
 import com.example.fleekpeek.presentations.ui.components.CarouselSection
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 import kotlinx.coroutines.delay
 
 @Composable

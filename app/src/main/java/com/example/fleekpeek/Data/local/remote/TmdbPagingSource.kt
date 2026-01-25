@@ -1,8 +1,8 @@
-package com.example.fleekpeek.remote
+package com.example.fleekpeek.Data.local.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.fleekpeek.remote.model.TMDBItem
-import com.example.fleekpeek.remote.model.TMDBResponse
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBResponse
 
 
 class TmdbPagingSource(private val tmdbApis: TmdbApis, private val searchQuery: String):

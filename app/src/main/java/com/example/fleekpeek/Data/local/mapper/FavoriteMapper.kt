@@ -2,7 +2,7 @@ package com.example.fleekpeek.Data.local.mapper
 
 import com.example.fleekpeek.Data.local.entity.FavoriteEntity
 import com.example.fleekpeek.presentations.ui.details.UiMedia
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 
 
 fun FavoriteEntity.toTMDBItem(): TMDBItem =

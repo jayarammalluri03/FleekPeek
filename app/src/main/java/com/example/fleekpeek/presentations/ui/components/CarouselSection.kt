@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.fleekpeek.Utils.SectionUiState
-import com.example.fleekpeek.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
 
 @Composable
 fun CarouselSection(title: String, state: SectionUiState, onItemClick: (Int, String) -> Unit, onviewAllClicked: (List<TMDBItem>) -> Unit) {

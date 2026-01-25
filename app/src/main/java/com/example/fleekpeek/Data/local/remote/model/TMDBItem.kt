@@ -1,4 +1,4 @@
-package com.example.fleekpeek.remote.model
+package com.example.fleekpeek.Data.local.remote.model
 
 data class TMDBItem(
     val id: Int? = null,

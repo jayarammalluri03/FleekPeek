@@ -3,8 +3,8 @@ package com.example.fleekpeek.domain.use_cases.responseUsecases
 
 
 import androidx.paging.PagingData
-import com.example.fleekpeek.remote.model.TMDBItem
-import com.example.fleekpeek.remote.repository.TmdbRepository
+import com.example.fleekpeek.Data.local.remote.model.TMDBItem
+import com.example.fleekpeek.Data.local.remote.repository.TmdbRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
