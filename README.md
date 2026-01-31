@@ -1,65 +1,47 @@
-📱 FleekPeek
+ FleekPeek
 
 A modern Android app to discover Movies & TV Shows built with Jetpack Compose & Clean Architecture.
 
 FleekPeek helps users explore trending movies, TV shows, cast details, ratings, and trailers in a fast and visually rich experience.
 Built entirely with modern Android development practices.
 
-🌟 Features
+ Features
 
-🎬 Movies & TV Shows
+ Movies & TV Shows
 Browse trending, top-rated, upcoming, and genre-based collections.
-
-🔍 Powerful Search
+Search
 Find movies, shows, and cast members instantly.
 
-📄 Detailed Media Pages
+Detailed Media Pages
 Get synopsis, ratings, runtime, genres, cast, and similar content.
 
-🎥 Trailer Player
-Watch trailers with smooth ExoPlayer integration.
-
-❤️ Favorites System
+Favorites 
 Save movies or shows for later with persistent storage.
 
-🌙 Beautiful & Modern UI
+Beautiful & Modern UI
 Fully built with Jetpack Compose + Material 3.
 
-⚡ Fast Performance
+Fast Performance
 Backed by Paging 3, Coroutines, and Clean Architecture.
 
-🛠️ Tech Stack
+Tech Stack
 Languages & UI
-
-Kotlin
-
-Jetpack Compose
-
-Material 3
+Kotlin-Jetpack Compose-Material 3
 
 Architecture
-
 MVVM
-
 Clean Architecture
-
 Repository Pattern
-
 Use Cases
 
+
 Libraries
-
 Retrofit + OkHttp
-
 Hilt (Dependency Injection)
-
 Paging 3
-
-Coil / Glide
+Coil
 
 Coroutines + Flow
-
-Room (if offline support enabled)
 
 ExoPlayer / Media3
 
@@ -83,27 +65,15 @@ app/
  ├── di/
  └── utils/
 
-🚀 Getting Started
-Requirements
 
-Android Studio Ladybug+
-
-Min SDK 24+
-
-Kotlin 1.9+
-
-TMDB API Key
-
-🤝 Contributing
-
+Contributing
 Contributions, issues, and feature requests are welcome!
 Feel free to open a PR or raise an issue.
 
-📜 License
-
+License
 This project is licensed under the MIT License.
 
-⭐ Support
+Support
 
 If you like this project, give it a ⭐ on GitHub — it helps motivate development!
 
